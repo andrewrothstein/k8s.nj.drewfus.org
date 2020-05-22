@@ -1,0 +1,27 @@
+---
+- hosts: all
+  roles:
+    - role: andrewrothstein.sudoers
+- hosts: san
+  roles:
+    - role: andrewrothstein.ceph
+  tasks:
+    - name: install open iscsi initiator
+      become: yes
+      become_user: root
+      package:
+        name: open-iscsi
+        state: present
+    - name: start iscsid service
+      become: yes
+      become_user: root
+      service:
+        name: iscsid
+        state: started
+        enabled: true
+- hosts: console
+  roles:
+    - role: andrewrothstein.hub
+    - role: andrewrothstein.rke
+    - role: andrewrothstein.kubectl
+    - role: andrewrothstein.kubernetes-helm
