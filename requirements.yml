@@ -9,5 +9,5 @@
   version: v1.1.39
 - role: andrewrothstein.kubernetes-helm
   version: v1.3.10
-- role: andrewrothstein.ceph
-  version: v2.0.1
+- role: andrewrothstein.docker_engine
+  version: v0.0.2

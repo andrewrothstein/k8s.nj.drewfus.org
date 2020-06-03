@@ -4,7 +4,7 @@
     - role: andrewrothstein.sudoers
 - hosts: san
   roles:
-    - role: andrewrothstein.ceph
+    - role: andrewrothstein.docker_engine
   tasks:
     - name: install open iscsi initiator
       become: yes
