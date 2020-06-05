@@ -1,13 +1,17 @@
-.PHONY: rke-up rke-remove
+.PHONY: rke-config-cluster rke-up rke-remove sync-kubeconfig argocd-up argocd-gke-sauce argocd-use-lb argocd-port-forward
 
+# see https://rancher.com/docs/rke/latest/en/config-options/
 rke-config-cluster:
 	rke config --name cluster.yml
 
 rke-up:
 	rke up
 
-rke-remote:
+rke-remove:
 	rke remove
+
+sync-kubeconfig:
+	scp arothste@console.nj.drewfus.org:k8s.nj.drewfus.org/kube_config_cluster.yml .
 
 # per https://argoproj.github.io/argo-cd/getting_started/
 
