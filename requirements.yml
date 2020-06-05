@@ -4,7 +4,7 @@
 - role: andrewrothstein.hub
   version: v1.0.23
 - role: andrewrothstein.rke
-  version: v1.0.8
+  version: v1.0.9
 - role: andrewrothstein.kubectl
   version: v1.1.39
 - role: andrewrothstein.kubernetes-helm
