@@ -1,4 +1,4 @@
-.PHONY: rke-config-cluster rke-up rke-remove sync-kubeconfig argocd-up argocd-gke-sauce argocd-use-lb argocd-port-forward ceph-common ceph-operator ceph-cluster
+.PHONY: rke-config-cluster rke-up rke-remove sync-kubeconfig argocd-up argocd-gke-sauce argocd-use-lb argocd-port-forward ceph-common ceph-operator ceph-cluster ceph-rbd ceph-fs
 
 # see https://rancher.com/docs/rke/latest/en/config-options/
 rke-config-cluster:
@@ -44,3 +44,9 @@ ceph-operator:
 
 ceph-cluster:
 	kubectl apply -f https://raw.githubusercontent.com/rook/rook/release-1.3/cluster/examples/kubernetes/ceph/cluster.yaml
+
+ceph-rbd:
+	kubectl apply -f https://raw.githubusercontent.com/rook/rook/release-1.3/cluster/examples/kubernetes/ceph/csi/rbd/storageclass-ec.yaml
+
+ceph-fs:
+	kubectl apply -f https://raw.githubusercontent.com/rook/rook/release-1.3/cluster/examples/kubernetes/ceph/csi/cephfs/storageclass.yaml
