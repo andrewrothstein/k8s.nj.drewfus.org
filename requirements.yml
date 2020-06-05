@@ -11,3 +11,5 @@
   version: v1.3.10
 - role: andrewrothstein.docker_engine
   version: v0.0.2
+- role: andrewrothstein.argocd
+  version: v1.0.2

@@ -28,8 +28,15 @@
         state: started
         enabled: true
 - hosts: console
+  vars:
+    hub_ver: 2.14.2
+    rke_ver: v1.1.2
+    kubectl_ver: v1.18.3
+    kubernetes_helm_ver: v3.2.1
+    argocd_ver: v1.5.6
   roles:
     - role: andrewrothstein.hub
     - role: andrewrothstein.rke
     - role: andrewrothstein.kubectl
     - role: andrewrothstein.kubernetes-helm
+    - role: andrewrothstein.argocd
