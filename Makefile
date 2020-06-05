@@ -1,4 +1,4 @@
-.PHONY: rke-config-cluster rke-up rke-remove sync-kubeconfig argocd-up argocd-gke-sauce argocd-use-lb argocd-port-forward
+.PHONY: rke-config-cluster rke-up rke-remove sync-kubeconfig argocd-up argocd-gke-sauce argocd-use-lb argocd-port-forward ceph-common ceph-operator ceph-cluster
 
 # see https://rancher.com/docs/rke/latest/en/config-options/
 rke-config-cluster:
@@ -35,3 +35,12 @@ argocd-use-lb:
 # Kubectl port-forwarding can also be used to connect to the API server without exposing the service.
 argocd-port-forward:
 	kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+ceph-common:
+	kubectl apply -f https://raw.githubusercontent.com/rook/rook/release-1.3/cluster/examples/kubernetes/ceph/common.yaml
+
+ceph-operator:
+	kubectl apply -f https://raw.githubusercontent.com/rook/rook/release-1.3/cluster/examples/kubernetes/ceph/operator.yaml
+
+ceph-cluster:
+	kubectl apply -f https://raw.githubusercontent.com/rook/rook/release-1.3/cluster/examples/kubernetes/ceph/cluster.yaml
