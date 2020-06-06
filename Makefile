@@ -1,4 +1,4 @@
-.PHONY: rke-config-cluster rke-up rke-remove sync-kubeconfig argocd-up argocd-gke-sauce argocd-use-lb argocd-port-forward ceph-common ceph-operator ceph-cluster ceph-rbd ceph-fs
+.PHONY: rke-config-cluster rke-up rke-remove sync-kubeconfig argocd-up argocd-remove argocd-gke-sauce argocd-use-lb argocd-port-forward ceph-common ceph-operator ceph-cluster ceph-rbd ceph-fs
 
 pkg-upgrade:
 	ansible-playbook pkg-upgrade.yml
@@ -22,6 +22,11 @@ sync-kubeconfig:
 argocd-up:
 	kubectl create namespace argocd
 	kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+argocd-remove:
+	kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+	kubectl delete namespace argocd
+
 
 # On GKE, you will need grant your account the ability to create new cluster roles:
 argocd-gke-sauce:
