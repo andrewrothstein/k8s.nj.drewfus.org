@@ -1,5 +1,8 @@
 .PHONY: rke-config-cluster rke-up rke-remove sync-kubeconfig argocd-up argocd-gke-sauce argocd-use-lb argocd-port-forward ceph-common ceph-operator ceph-cluster ceph-rbd ceph-fs
 
+pkg-upgrade:
+	ansible-playbook pkg-upgrade.yml
+
 # see https://rancher.com/docs/rke/latest/en/config-options/
 rke-config-cluster:
 	rke config --name cluster.yml
