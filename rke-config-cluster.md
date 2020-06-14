@@ -1,4 +1,5 @@
-```
+arothste@console:~/k8s.nj.drewfus.org$ rke --version
+rke version v1.1.2
 arothste@console:~/k8s.nj.drewfus.org$ rke config --name cluster.yml
 [+] Cluster Level SSH Private Key Path [~/.ssh/id_rsa]: 
 [+] Number of Hosts [1]: 5
@@ -70,12 +71,11 @@ arothste@console:~/k8s.nj.drewfus.org$ rke config --name cluster.yml
 [+] Network Plugin Type (flannel, calico, weave, canal) [canal]: 
 [+] Authentication Strategy [x509]: 
 [+] Authorization Mode (rbac, none) [rbac]: 
-[+] Kubernetes Docker image [rancher/hyperkube:v1.17.4-rancher1]: 
+[+] Kubernetes Docker image [rancher/hyperkube:v1.17.6-rancher2]: 
 [+] Cluster domain [cluster.local]: k8s.nj.drewfus.org
 [+] Service Cluster IP Range [10.43.0.0/16]: 
-[+] Enable PodSecurityPolicy [n]: y
+[+] Enable PodSecurityPolicy [n]: 
 [+] Cluster Network CIDR [10.42.0.0/16]: 
 [+] Cluster DNS Service IP [10.43.0.10]: 
 [+] Add addon manifest URLs or YAML files [no]: 
-arothste@console:~/k8s.nj.drewfus.org$
-```
+arothste@console:~/k8s.nj.drewfus.org$ 
