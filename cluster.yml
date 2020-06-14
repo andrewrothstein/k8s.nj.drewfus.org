@@ -105,7 +105,7 @@ services:
     extra_env: []
     service_cluster_ip_range: 10.43.0.0/16
     service_node_port_range: ""
-    pod_security_policy: true
+    pod_security_policy: false
     always_pull_images: false
     secrets_encryption_config: null
     audit_log: null
@@ -193,15 +193,7 @@ kubernetes_version: ""
 private_registries: []
 ingress:
   provider: ""
-  options: {}
-  node_selector: {}
-  extra_args: {}
-  dns_policy: ""
-  extra_envs: []
-  extra_volumes: []
-  extra_volume_mounts: []
-  update_strategy: null
-cluster_name: ""
+cluster_name: lab
 cloud_provider:
   name: ""
 prefix_path: ""
