@@ -27,6 +27,11 @@
         name: iscsid
         state: started
         enabled: true
+- hosts: vault
+  vars:
+    vault_app_ver: 1.4.2
+  roles:
+    - role: andrewrothstein.vault
 - hosts: console
   vars:
     hub_ver: 2.14.2
