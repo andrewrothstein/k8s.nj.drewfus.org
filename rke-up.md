@@ -804,7 +804,17 @@ INFO[0419] [addons] Successfully saved ConfigMap for addon rke-ingress-controlle
 INFO[0419] [addons] Executing deploy job rke-ingress-controller 
 INFO[0424] [ingress] ingress controller nginx deployed successfully 
 INFO[0424] [addons] Setting up user addons              
-INFO[0424] [addons] no user addons defined              
+INFO[0424] [addons] Checking for included user addons   
+INFO[0424] [addons] Adding addon from url https://raw.githubusercontent.com/rook/rook/release-1.3/cluster/examples/kubernetes/ceph/common.yaml 
+INFO[0424] [addons] Adding addon from url https://raw.githubusercontent.com/rook/rook/release-1.3/cluster/examples/kubernetes/ceph/operator.yaml 
+INFO[0424] [addons] Adding addon from url https://raw.githubusercontent.com/rook/rook/release-1.3/cluster/examples/kubernetes/ceph/cluster.yaml 
+INFO[0424] [addons] Adding addon from url https://raw.githubusercontent.com/rook/rook/release-1.3/cluster/examples/kubernetes/ceph/csi/rbd/storageclass-ec.yaml 
+INFO[0424] [addons] Adding addon from url https://raw.githubusercontent.com/rook/rook/release-1.3/cluster/examples/kubernetes/ceph/csi/cephfs/storageclass.yaml 
+INFO[0424] [addons] Deploying rke-user-includes-addons  
+INFO[0424] [addons] Saving ConfigMap for addon rke-user-includes-addons to Kubernetes 
+INFO[0424] [addons] Successfully saved ConfigMap for addon rke-user-includes-addons to Kubernetes 
+INFO[0424] [addons] Executing deploy job rke-user-includes-addons 
+INFO[0424] [addons] User addons deployed successfully   
 INFO[0424] Finished building Kubernetes cluster successfully 
 arothste@console:~/k8s.nj.drewfus.org$ export KUBECONFIG=$(pwd)/kube_config_cluster.yml
 arothste@console:~/k8s.nj.drewfus.org$ kubectl get nodes

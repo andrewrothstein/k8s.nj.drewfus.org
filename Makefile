@@ -21,10 +21,10 @@ sync-kubeconfig:
 # 1. Install Argo CD
 argocd-up:
 	kubectl create namespace argocd
-	kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+	kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v1.5.7/manifests/install.yaml
 
 argocd-remove:
-	kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+	kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v1.5.7/manifests/install.yaml
 	kubectl delete namespace argocd
 
 
@@ -43,18 +43,3 @@ argocd-use-lb:
 # Kubectl port-forwarding can also be used to connect to the API server without exposing the service.
 argocd-port-forward:
 	kubectl port-forward svc/argocd-server -n argocd 8080:443
-
-ceph-common:
-	kubectl apply -f https://raw.githubusercontent.com/rook/rook/release-1.3/cluster/examples/kubernetes/ceph/common.yaml
-
-ceph-operator:
-	kubectl apply -f https://raw.githubusercontent.com/rook/rook/release-1.3/cluster/examples/kubernetes/ceph/operator.yaml
-
-ceph-cluster:
-	kubectl apply -f https://raw.githubusercontent.com/rook/rook/release-1.3/cluster/examples/kubernetes/ceph/cluster.yaml
-
-ceph-rbd:
-	kubectl apply -f https://raw.githubusercontent.com/rook/rook/release-1.3/cluster/examples/kubernetes/ceph/csi/rbd/storageclass-ec.yaml
-
-ceph-fs:
-	kubectl apply -f https://raw.githubusercontent.com/rook/rook/release-1.3/cluster/examples/kubernetes/ceph/csi/cephfs/storageclass.yaml
