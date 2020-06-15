@@ -1,0 +1,7 @@
+---
+# ansible-playbook reboot.yml -e reboot_group=san
+- hosts: '{{ reboot_group }}'
+  tasks:
+    - become: yes
+      become_user: root
+      command: reboot
