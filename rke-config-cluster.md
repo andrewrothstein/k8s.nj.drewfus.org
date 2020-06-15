@@ -1,3 +1,4 @@
+```
 arothste@console:~/k8s.nj.drewfus.org$ rke --version
 rke version v1.1.2
 arothste@console:~/k8s.nj.drewfus.org$ rke config --name cluster.yml
@@ -78,4 +79,5 @@ arothste@console:~/k8s.nj.drewfus.org$ rke config --name cluster.yml
 [+] Cluster Network CIDR [10.42.0.0/16]: 
 [+] Cluster DNS Service IP [10.43.0.10]: 
 [+] Add addon manifest URLs or YAML files [no]: 
-arothste@console:~/k8s.nj.drewfus.org$ 
+arothste@console:~/k8s.nj.drewfus.org$
+```
