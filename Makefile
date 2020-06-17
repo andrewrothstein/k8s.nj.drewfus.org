@@ -1,9 +1,10 @@
-.PHONY: rke-config-cluster rke-up rke-remove sync-kubeconfig argocd-up argocd-remove argocd-gke-sauce argocd-use-lb argocd-port-forward ceph-common ceph-operator ceph-cluster ceph-rbd ceph-fs
+.PHONY: rke-config-cluster rke-up rke-remove sync-kubeconfig argocd-up argocd-remove argocd-gke-sauce argocd-use-lb argocd-port-forward argocd-print-init-pwd
 
 pkg-upgrade:
 	ansible-playbook pkg-upgrade.yml
 
 # see https://rancher.com/docs/rke/latest/en/config-options/
+# see cluster.yml
 rke-config-cluster:
 	rke config --name cluster.yml
 
@@ -27,6 +28,8 @@ argocd-remove:
 	kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v1.5.7/manifests/install.yaml
 	kubectl delete namespace argocd
 
+argocd-print-init-pwd:
+	kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2
 
 # On GKE, you will need grant your account the ability to create new cluster roles:
 argocd-gke-sauce:
