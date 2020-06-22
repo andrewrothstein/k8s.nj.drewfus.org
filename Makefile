@@ -46,3 +46,6 @@ argocd-use-lb:
 # Kubectl port-forwarding can also be used to connect to the API server without exposing the service.
 argocd-port-forward:
 	kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+vault-hsm-init:
+	softhsm2-util --init-token --free --label bank-vaults --so-pin '079c1456-b43d-11ea-839e-685b35872151' --pin '1b8b5454-b43d-11ea-b231-685b35872151'
