@@ -1,11 +1,11 @@
-.PHONY: rke-config-cluster rke-up rke-remove sync-kubeconfig argocd-up argocd-remove argocd-gke-sauce argocd-use-lb argocd-port-forward argocd-print-init-pwd
+.PHONY: rke-up rke-remove sync-kubeconfig argocd-up argocd-remove argocd-gke-sauce argocd-use-lb argocd-port-forward argocd-print-init-pwd
 
 pkg-upgrade:
 	ansible-playbook pkg-upgrade.yml
 
 # see https://rancher.com/docs/rke/latest/en/config-options/
 # see cluster.yml
-rke-config-cluster:
+rke-config-cluster: cluster.yml
 	rke config --name cluster.yml
 
 rke-up:
