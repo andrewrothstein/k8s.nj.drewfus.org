@@ -46,4 +46,10 @@
     - role: andrewrothstein.kubectl
     - role: andrewrothstein.calicoctl
     - role: andrewrothstein.kubernetes-helm
+    - role: andrewrothstein.hashi
+      hashi_apps:
+      - name: vault
+        ver: 1.4.2
+      - name: vault-k8s
+        ver: 0.4.0
     - role: andrewrothstein.argocd
