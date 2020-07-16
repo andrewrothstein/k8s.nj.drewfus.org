@@ -19,3 +19,5 @@
   version: v1.0.9
 - role: andrewrothstein.hashi
   version: v0.2.0
+- role: andrewrothstein.go
+  version: v2.1.32

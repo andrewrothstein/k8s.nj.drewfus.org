@@ -40,6 +40,7 @@
     calicoctl_ver: v3.14.1
     kubernetes_helm_ver: v3.2.1
     argocd_ver: v1.5.6
+    go_ver: 1.14.4
   roles:
     - role: andrewrothstein.hub
     - role: andrewrothstein.rke
@@ -49,7 +50,8 @@
     - role: andrewrothstein.hashi
       hashi_apps:
       - name: vault
-        ver: 1.4.2
+        ver: 1.4.3
       - name: vault-k8s
         ver: 0.4.0
     - role: andrewrothstein.argocd
+    - role: andrewrothstein.go
