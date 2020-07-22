@@ -63,5 +63,3 @@ vault-start:
 vault-delete:
 	kubectl delete -f bank-vaults/cr-etcd-ha.yaml
 	kubectl delete -f bank-vaults/rbac.yaml
-
-
