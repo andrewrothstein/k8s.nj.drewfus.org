@@ -21,3 +21,5 @@
   version: v0.2.0
 - role: andrewrothstein.go
   version: v2.1.32
+- role: andrewrothstein.kind
+  version: v1.0.3
