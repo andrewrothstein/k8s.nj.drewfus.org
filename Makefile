@@ -22,10 +22,10 @@ sync-kubeconfig:
 # 1. Install Argo CD
 argocd-up:
 	kubectl create namespace argocd
-	kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v1.5.7/manifests/install.yaml
+	kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v1.6.2/manifests/install.yaml
 
 argocd-remove:
-	kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v1.5.7/manifests/install.yaml
+	kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v1.6.2/manifests/install.yaml
 	kubectl delete namespace argocd
 
 argocd-print-init-pwd:
