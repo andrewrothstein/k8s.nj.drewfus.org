@@ -47,18 +47,11 @@ argocd-use-lb:
 argocd-port-forward:
 	kubectl port-forward svc/argocd-server -n argocd 8080:443
 
-vault-init:
-	helm repo add hashicorp https://helm.releases.hashicorp.com
-	kubectl create namespace vault
+vault-op-init:
+	helm repo add banzaicloud-stable https://kubernetes-charts.banzaicloud.com
 
-vault-start:
-	helm install -n vault vault hashicorp/vault --values helm-vault-values.yaml
+vault-op-start:
+	helm upgrade --install vault-operator banzaicloud-stable/vault-operator
 
-vault-delete:
-	helm delete -n vault vault
-
-vault-port-forward:
-	kubectl port-forward svc/vault-internal -n vault 8200
-
-vault-hsm-init:
-	softhsm2-util --init-token --free --label bank-vaults --so-pin '079c1456-b43d-11ea-839e-685b35872151' --pin '1b8b5454-b43d-11ea-b231-685b35872151'
+vault-op-delete:
+	helm delete vault-operator
