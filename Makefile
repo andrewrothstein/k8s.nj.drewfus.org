@@ -51,7 +51,17 @@ vault-op-init:
 	helm repo add banzaicloud-stable https://kubernetes-charts.banzaicloud.com
 
 vault-op-start:
-	helm upgrade --install vault-operator banzaicloud-stable/vault-operator
+	helm upgrade --install vault-operator banzaicloud-stable/vault-operator -f bank-vaults/vault-op.yml
 
 vault-op-delete:
 	helm delete vault-operator
+
+vault-start:
+	kubectl apply -f bank-vaults/rbac.yaml
+	kubectl apply -f bank-vaults/cr-etcd-ha.yaml
+
+vault-delete:
+	kubectl delete -f bank-vaults/cr-etcd-ha.yaml
+	kubectl delete -f bank-vaults/rbac.yaml
+
+

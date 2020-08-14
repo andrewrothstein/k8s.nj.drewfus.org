@@ -1,0 +1,5 @@
+---
+etcd-operator:
+  enabled: true
+  commandArgs:
+    cluster-wide: true
