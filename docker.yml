@@ -1,0 +1,13 @@
+---
+- hosts: docker
+  roles:
+    - role: andrewrothstein.docker_engine
+  tasks:
+    - name: add arothste to docker group
+      become: yes
+      become_user: root
+      user:
+        name: arothste
+        groups:
+          - docker
+        append: yes

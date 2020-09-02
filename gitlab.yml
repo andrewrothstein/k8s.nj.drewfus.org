@@ -1,0 +1,7 @@
+---
+- hosts:
+    - vault
+  vars:
+    gitlab_ver: 13.1.4
+  roles:
+    - role: andrewrothstein.gitlab

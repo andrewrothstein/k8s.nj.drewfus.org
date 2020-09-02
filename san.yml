@@ -1,0 +1,16 @@
+---
+- hosts: san
+  tasks:
+    - name: install open iscsi initiator
+      become: yes
+      become_user: root
+      package:
+        name: open-iscsi
+        state: present
+    - name: start iscsid service
+      become: yes
+      become_user: root
+      service:
+        name: iscsid
+        state: started
+        enabled: true

@@ -1,0 +1,18 @@
+- hosts: console
+  vars:
+    hub_ver: 2.14.2
+    rke_ver: v1.1.4
+    kubectl_ver: v1.18.3
+    calicoctl_ver: v3.14.1
+    kubernetes_helm_ver: v3.2.1
+    argocd_ver: v1.5.6
+    go_ver: 1.14.4
+  roles:
+    - role: andrewrothstein.hub
+    - role: andrewrothstein.rke
+    - role: andrewrothstein.kubectl
+    - role: andrewrothstein.calicoctl
+    - role: andrewrothstein.kubernetes-helm
+    - role: andrewrothstein.argocd
+    - role: andrewrothstein.go
+    - role: andrewrothstein.k3d
