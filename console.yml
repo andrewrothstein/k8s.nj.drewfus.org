@@ -1,12 +1,12 @@
 - hosts: console
   vars:
     hub_ver: 2.14.2
-    rke_ver: v1.1.4
-    kubectl_ver: v1.18.3
-    calicoctl_ver: v3.14.1
-    kubernetes_helm_ver: v3.2.1
-    argocd_ver: v1.5.6
-    go_ver: 1.14.4
+    rke_ver: v1.1.6
+    kubectl_ver: v1.19.0
+    calicoctl_ver: v3.15.2
+    kubernetes_helm_ver: v3.3.0
+    argocd_ver: v1.7.4
+    go_ver: '1.15'
     hashi_apps:
       - name: terraform
         ver: 0.13.2
