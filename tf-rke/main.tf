@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "rke" {
-    log_file = "rke-up.txt"
+    log_file = "rke-provider-log.txt"
 }
 
 module "k8s-nj-drewfus-org" {
