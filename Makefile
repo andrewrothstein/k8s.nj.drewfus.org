@@ -3,16 +3,16 @@
 pkg-upgrade:
 	ansible-playbook pkg-upgrade.yml
 
-# see https://rancher.com/docs/rke/latest/en/config-options/
-# see cluster.yml
-rke-config-cluster: cluster.yml
-	rke config --name cluster.yml
+# see https://registry.terraform.io/providers/rancher/rke/latest/docs
+# and https://registry.terraform.io/providers/rancher/rke/latest/docs/resources/cluster
+rke-plan:
+	$(MAKE) -C tf-rke plan
 
 rke-up:
-	rke up
+	$(MAKE) -C tf-rke up
 
-rke-remove:
-	rke remove
+rke-destroy:
+	$(MAKE) -C tf-rke destroy
 
 sync-kubeconfig:
 	scp arothste@console.nj.drewfus.org:k8s.nj.drewfus.org/kube_config_cluster.yml .
