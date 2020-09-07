@@ -27,3 +27,5 @@
   version: v2.1.0
 - role: andrewrothstein.gitlab_runner
   version: v1.1.17
+- role: andrewrothstein.trust-ca
+  version: v1.2.0
