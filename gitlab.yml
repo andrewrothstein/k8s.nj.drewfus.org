@@ -1,7 +1,21 @@
 ---
 - hosts:
-    - vault
+    - gitlab
   vars:
-    gitlab_ver: 13.1.4
+    gitlab_ver: 13.3.5
+    gitlab_patch: 0
+    gitlab_tls_dir: /etc/gitlab/ssl
+    gitlab_tls:
+      enable: True
+      pki_dir: /Users/drew/keybase/private/andrewrothstein/pkis/nj.drewfus.org
+    gitlab_enabled: False
+    gitlab_config:
+      external_url: https://gitlab.nj.drewfus.org
+      nginx:
+        enable: True
+        redirect_http_to_https_port: 80
+        ssl_certificate: '{{ gitlab_tls_dir }}/cert.pem'
+        ssl_certificate_key: '{{ gitlab_tls_dir }}/key.pem'
+
   roles:
     - role: andrewrothstein.gitlab
