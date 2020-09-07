@@ -8,7 +8,7 @@
     gitlab_tls:
       enable: True
       pki_dir: /Users/drew/keybase/private/andrewrothstein/pkis/nj.drewfus.org
-    gitlab_enabled: False
+    gitlab_enabled: True
     gitlab_config:
       external_url: https://gitlab.nj.drewfus.org
       nginx:
@@ -16,6 +16,11 @@
         redirect_http_to_https_port: 80
         ssl_certificate: '{{ gitlab_tls_dir }}/cert.pem'
         ssl_certificate_key: '{{ gitlab_tls_dir }}/key.pem'
-
   roles:
     - role: andrewrothstein.gitlab
+  tasks:
+    - name: restarting gitlab
+      become: yes
+      become_user: root
+      when: gitlab_enabled
+      command: gitlab-ctl restart

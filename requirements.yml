@@ -25,3 +25,5 @@
   version: v1.0.3
 - role: andrewrothstein.gitlab
   version: v2.1.0
+- role: andrewrothstein.gitlab_runner
+  version: v1.1.17

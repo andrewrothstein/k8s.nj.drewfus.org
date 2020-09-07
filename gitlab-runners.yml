@@ -1,0 +1,16 @@
+- hosts: gitlab_runners
+  vars:
+    gitlab_runner_ver: 13.3.1
+    gitlab_runner_reregister:
+      gitlab_hostname: gitlab.nj.drewfus.org
+      registration_token: '{{ gitlab_runner_registration_token }}'
+      runners:
+        - tags:
+            - shell
+          executor: shell
+        - tags:
+            - docker
+          executor: docker
+          docker_image: alpine:3.12
+  roles:
+    - role: andrewrothstein.gitlab_runner
