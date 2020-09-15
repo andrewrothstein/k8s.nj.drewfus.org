@@ -56,10 +56,20 @@ vault-op-start:
 vault-op-delete:
 	helm delete vault-operator
 
-vault-start:
+vault-rbac-start:
 	kubectl apply -f bank-vaults/rbac.yaml
+
+vault-rbac-delete:
+	kubectl delete -f bank-vaults/rbac.yaml
+
+vault-file-start:
+	kubectl apply -f bank-vaults/cr-file.yaml
+
+vault-file-delete:
+	kubectl delete -f bank-vaults/cr-file.yaml
+
+vault-etc-start:
 	kubectl apply -f bank-vaults/cr-etcd-ha.yaml
 
-vault-delete:
+vault-etc-delete:
 	kubectl delete -f bank-vaults/cr-etcd-ha.yaml
-	kubectl delete -f bank-vaults/rbac.yaml
