@@ -11,6 +11,28 @@
     gitlab_enabled: True
     gitlab_config:
       external_url: https://gitlab.nj.drewfus.org
+      gitlab_rails_object_store:
+        enabled: true
+        connection:
+          provider: AWS
+          aws_access_key: '{{ minio_access_key }}'
+          aws_secret_key: '{{ minio_secret_key }}'
+          endpoint: http://127.0.0.1:9000
+        objects:
+          artifacts:
+            bucket: artifacts
+          external_diffs:
+            bucket: externaldiffs
+          lfs:
+            bucket: lfs
+          uploads:
+            bucket: uploads
+          packages:
+            bucket: packages
+          dependency_proxy:
+            bucket: dependencyproxy
+          terraform_state:
+            bucket: terraformstate
       nginx:
         enable: True
         redirect_http_to_https_port: 80
@@ -22,9 +44,3 @@
         ssl_certificate_key: '{{ gitlab_tls_dir }}/key.pem'
   roles:
     - role: andrewrothstein.gitlab
-  tasks:
-    - name: restarting gitlab
-      become: yes
-      become_user: root
-      when: gitlab_enabled
-      command: gitlab-ctl restart

@@ -1,0 +1,12 @@
+---
+- hosts: minio
+  vars:
+    minio_config:
+      enable: True
+      opts: --address 127.0.0.1:9000
+      server_access_key: '{{ minio_access_key }}'
+      server_secret_key: '{{ minio_secret_key }}'
+      volumes:
+        - /var/minio-data-1
+  roles:
+    - role: andrewrothstein.minio

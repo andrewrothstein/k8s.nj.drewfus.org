@@ -4,5 +4,6 @@
 - import_playbook: san.yml
 - import_playbook: docker.yml
 - import_playbook: vault.yml
+- import_playbook: minio.yml
 - import_playbook: gitlab.yml
 - import_playbook: console.yml
