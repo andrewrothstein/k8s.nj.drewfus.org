@@ -13,7 +13,4 @@
           executor: docker
           docker_image: alpine:3.12
   roles:
-    - role: andrewrothstein.trust-ca
-      trust_ca_pki_dir: /Users/drew/keybase/private/andrewrothstein/pkis/nj.drewfus.org
-      trust_ca_cert_prefix: ca-nj-drewfus-org
     - role: andrewrothstein.gitlab_runner
