@@ -2,31 +2,31 @@
 - role: andrewrothstein.sudoers
   version: v1.0.12
 - role: andrewrothstein.hub
-  version: v1.0.23
+  version: v1.0.24
 - role: andrewrothstein.rke
-  version: v1.0.12
+  version: v1.0.13
 - role: andrewrothstein.kubectl
-  version: v1.1.44
+  version: v1.1.46
 - role: andrewrothstein.calicoctl
   version: v1.1.14
 - role: andrewrothstein.kubernetes-helm
-  version: v1.3.14
+  version: v1.3.16
 - role: andrewrothstein.docker_engine
   version: v0.0.2
 - role: andrewrothstein.argocd
-  version: v1.0.4
+  version: v1.0.5
 - role: andrewrothstein.pkg-upgrade
   version: v1.0.9
 - role: andrewrothstein.hashi
   version: v0.2.0
 - role: andrewrothstein.go
-  version: v2.1.37
+  version: v2.1.38
 - role: andrewrothstein.k3d
   version: v1.0.3
 - role: andrewrothstein.gitlab
   version: v2.2.0
 - role: andrewrothstein.gitlab_runner
-  version: v1.1.17
+  version: v1.1.18
 - role: andrewrothstein.trust-ca
   version: v1.2.0
 - role: andrewrothstein.minio
