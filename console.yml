@@ -10,6 +10,8 @@
     hashi_apps:
       - name: terraform
         ver: 0.13.3
+      - name: packer
+        ver: 1.6.3
   roles:
     - role: andrewrothstein.hashi
     - role: andrewrothstein.hub
