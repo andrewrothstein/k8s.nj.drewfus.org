@@ -16,7 +16,7 @@ locals {
     cluster_cidr = "10.42.0.0/16"
     cluster_dns_server = "10.43.0.10"
     cluster_domain = "k8s.nj.drewfus.org"
-    argocd_ver = "1.7.3"
+    argocd_ver = "1.7.7"
     cert_manager_ver = "0.15.2"
     rook_ver = "1.3"
 }
