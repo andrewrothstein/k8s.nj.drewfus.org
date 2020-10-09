@@ -18,7 +18,7 @@ locals {
     cluster_domain = "k8s.nj.drewfus.org"
     argocd_ver = "1.7.7"
     cert_manager_ver = "0.15.2"
-    rook_ver = "1.3"
+    rook_ver = "1.4"
 }
 
 resource "rke_cluster" "k8s" {
