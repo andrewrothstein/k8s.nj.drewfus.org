@@ -4,7 +4,7 @@
 - role: andrewrothstein.hub
   version: v1.0.24
 - role: andrewrothstein.rke
-  version: v1.0.13
+  version: v1.0.14
 - role: andrewrothstein.kubectl
   version: v1.1.46
 - role: andrewrothstein.calicoctl

@@ -11,11 +11,6 @@ terraform {
 }
 
 locals {
-    node_count = 5
-    service_cluster_ip_range = "10.43.0.0/16"
-    cluster_cidr = "10.42.0.0/16"
-    cluster_dns_server = "10.43.0.10"
-    cluster_domain = "k8s.nj.drewfus.org"
     argocd_ver = "1.7.7"
     cert_manager_ver = "1.0.3"
     rook_ver = "1.4"
@@ -31,7 +26,7 @@ resource "rke_cluster" "k8s" {
         "https://raw.githubusercontent.com/rook/rook/release-${local.rook_ver}/cluster/examples/kubernetes/ceph/csi/rbd/storageclass-ec.yaml",
         "https://raw.githubusercontent.com/rook/rook/release-${local.rook_ver}/cluster/examples/kubernetes/ceph/csi/cephfs/storageclass.yaml",
     ]
-    kubernetes_version = "v1.18.6-rancher1-2"
+    kubernetes_version = var.k8s_ver
     nodes {
         address = "core-001.nj.drewfus.org"
         user = "arothste"
@@ -64,10 +59,10 @@ resource "rke_cluster" "k8s" {
     }
     services {
         kube_api {
-            service_cluster_ip_range = local.service_cluster_ip_range
+            service_cluster_ip_range = var.service_cluster_ip_range
         }
         kube_controller {
-            service_cluster_ip_range = local.service_cluster_ip_range
+            service_cluster_ip_range = var.service_cluster_ip_range
         }
     }
     upgrade_strategy {

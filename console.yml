@@ -1,7 +1,7 @@
 - hosts: console
   vars:
     hub_ver: 2.14.2
-    rke_ver: v1.1.7
+    rke_ver: v1.2.0
     kubectl_ver: v1.19.2
     calicoctl_ver: v3.15.2
     kubernetes_helm_ver: v3.3.4
@@ -9,9 +9,9 @@
     go_ver: '1.15.2'
     hashi_apps:
       - name: terraform
-        ver: 0.13.3
+        ver: 0.13.4
       - name: packer
-        ver: 1.6.3
+        ver: 1.6.4
   roles:
     - role: andrewrothstein.hashi
     - role: andrewrothstein.hub
