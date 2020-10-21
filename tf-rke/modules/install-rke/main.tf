@@ -27,35 +27,14 @@ resource "rke_cluster" "k8s" {
         "https://raw.githubusercontent.com/rook/rook/release-${local.rook_ver}/cluster/examples/kubernetes/ceph/csi/cephfs/storageclass.yaml",
     ]
     kubernetes_version = var.k8s_ver
-    nodes {
-        address = "core-001.nj.drewfus.org"
-        user = "arothste"
-        role = ["controlplane", "worker", "etcd"]
-        ssh_key = file("~/.ssh/id_rsa")
-    }
-    nodes {
-        address = "core-002.nj.drewfus.org"
-        user = "arothste"
-        role = ["controlplane", "worker", "etcd"]
-        ssh_key = file("~/.ssh/id_rsa")
-    }
-    nodes {
-        address = "core-003.nj.drewfus.org"
-        user = "arothste"
-        role = ["controlplane", "worker", "etcd"]
-        ssh_key = file("~/.ssh/id_rsa")
-    }
-    nodes {
-        address = "core-004.nj.drewfus.org"
-        user = "arothste"
-        role = ["controlplane", "worker", "etcd"]
-        ssh_key = file("~/.ssh/id_rsa")
-    }
-    nodes {
-        address = "core-005.nj.drewfus.org"
-        user = "arothste"
-        role = ["controlplane", "worker", "etcd"]
-        ssh_key = file("~/.ssh/id_rsa")
+    dynamic "nodes" {
+         for_each = range(1, var.node_count)
+         content {
+            address = format("core-%03d.nj.drewfus.org", nodes.value)
+            user = "arothste"
+            role = ["controlplane", "worker", "etcd"]
+            ssh_key = file("~/.ssh/id_rsa")
+         }
     }
     services {
         kube_api {
