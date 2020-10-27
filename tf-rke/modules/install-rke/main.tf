@@ -11,7 +11,7 @@ terraform {
 }
 
 locals {
-    argocd_ver = "1.7.7"
+    argocd_ver = "1.7.8"
     cert_manager_ver = "1.0.3"
     rook_ver = "1.4"
 }
