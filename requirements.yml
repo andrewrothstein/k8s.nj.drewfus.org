@@ -34,4 +34,4 @@
 - role: andrewrothstein.vault-config
   version: v2.0.0
 - role: andrewrothstein.matchbox-config
-  version: v2.0.0
+  version: v2.0.2
