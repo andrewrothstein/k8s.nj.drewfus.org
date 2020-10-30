@@ -4,7 +4,7 @@
     rke_ver: v1.2.1
     kubectl_ver: v1.19.3
     calicoctl_ver: v3.16.4
-    kubernetes_helm_ver: v3.3.4
+    kubernetes_helm_ver: v3.4.0
     argocd_ver: v1.7.8
     go_ver: 1.15.3
     hashi_apps:
@@ -12,6 +12,8 @@
         ver: 0.13.5
       - name: packer
         ver: 1.6.4
+    k3d_ver: v3.1.5
+    k9s_ver: v0.22.1
   roles:
     - role: andrewrothstein.hashi
     - role: andrewrothstein.hub
@@ -22,3 +24,4 @@
     - role: andrewrothstein.argocd
     - role: andrewrothstein.go
     - role: andrewrothstein.k3d
+    - role: andrewrothstein.k9s

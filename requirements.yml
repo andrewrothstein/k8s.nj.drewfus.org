@@ -6,13 +6,13 @@
 - role: andrewrothstein.rke
   version: v1.0.15
 - role: andrewrothstein.kubectl
-  version: v1.1.47
+  version: v1.1.48
 - role: andrewrothstein.calicoctl
   version: v1.1.16
 - role: andrewrothstein.kubernetes-helm
-  version: v1.3.16
+  version: v1.3.17
 - role: andrewrothstein.docker_engine
-  version: v0.0.2
+  version: v0.0.5
 - role: andrewrothstein.argocd
   version: v1.0.7
 - role: andrewrothstein.pkg-upgrade
@@ -22,7 +22,7 @@
 - role: andrewrothstein.go
   version: v2.1.39
 - role: andrewrothstein.k3d
-  version: v1.0.3
+  version: v1.0.8
 - role: andrewrothstein.gitlab
   version: v2.2.1
 - role: andrewrothstein.gitlab_runner
@@ -35,3 +35,5 @@
   version: v2.0.0
 - role: andrewrothstein.matchbox-config
   version: v2.0.2
+- role: andrewrothstein.k9s
+  version: v1.0.3
