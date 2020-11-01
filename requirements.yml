@@ -24,7 +24,7 @@
 - role: andrewrothstein.k3d
   version: v1.0.8
 - role: andrewrothstein.gitlab
-  version: v2.2.1
+  version: v2.2.3
 - role: andrewrothstein.gitlab_runner
   version: v1.1.18
 - role: andrewrothstein.trust-ca
