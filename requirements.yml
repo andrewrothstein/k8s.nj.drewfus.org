@@ -37,3 +37,5 @@
   version: v2.0.2
 - role: andrewrothstein.k9s
   version: v1.0.3
+- role: andrewrothstein.dnsmasq_configure
+  version: v1.0.6
