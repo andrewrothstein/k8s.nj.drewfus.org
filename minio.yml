@@ -1,12 +1,30 @@
 ---
 - hosts: minio
   vars:
+    minio_address: 127.0.0.1:9000
     minio_config:
       enable: True
-      opts: --address 127.0.0.1:9000
+      opts: --address {{ minio_address }}
       server_access_key: '{{ minio_access_key }}'
       server_secret_key: '{{ minio_secret_key }}'
       volumes:
-        - /var/minio-data-1
+        - /var/minio/data
+    minio_alias: gitlab
+    minio_buckets_to_create:
+      - gitlab-artifacts
+      - gitlab-externaldiffs
+      - gitlab-lfs
+      - gitlab-uploads
+      - gitlab-dependencyproxy
+      - gitlab-terraformstate
+      - vault-data
   roles:
     - role: andrewrothstein.minio
+  tasks:
+    - name: login mc
+      command:
+        cmd: /usr/local/bin/mc alias set {{ minio_alias }} http://{{ minio_address }} {{ minio_access_key }} {{ minio_secret_key }}
+    - name: creating minio buckets with mc
+      with_items: '{{ minio_buckets_to_create }}'
+      command:
+        cmd: /usr/local/bin/mc mb --ignore-existing {{ minio_alias }}/{{ item }}

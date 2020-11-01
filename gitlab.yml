@@ -20,19 +20,19 @@
           endpoint: http://127.0.0.1:9000
         objects:
           artifacts:
-            bucket: artifacts
+            bucket: gitlab-artifacts
           external_diffs:
-            bucket: externaldiffs
+            bucket: gitlab-externaldiffs
           lfs:
-            bucket: lfs
+            bucket: gitlab-lfs
           uploads:
-            bucket: uploads
+            bucket: gitlab-uploads
           packages:
-            bucket: packages
+            bucket: gitlab-packages
           dependency_proxy:
-            bucket: dependencyproxy
+            bucket: gitlab-dependencyproxy
           terraform_state:
-            bucket: terraformstate
+            bucket: gitlab-terraformstate
       nginx:
         enable: True
         redirect_http_to_https_port: 80

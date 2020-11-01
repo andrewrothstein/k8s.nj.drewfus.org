@@ -1,7 +1,7 @@
 ---
 - hosts: vault
   vars:
-    vault_ver: 1.5.3
+    vault_ver: 1.5.5
   roles:
     - role: andrewrothstein.vault-config
       vault_config_tls:
@@ -9,7 +9,7 @@
         pki_dir: /Users/drew/keybase/private/andrewrothstein/pkis/nj.drewfus.org
       vault_config_storage:
         ty: s3
-        bucket: vault
+        bucket: vault-data
         access_key: '{{ minio_access_key }}'
         secret_key: '{{ minio_secret_key }}'
         endpoint: http://127.0.0.1:9000
