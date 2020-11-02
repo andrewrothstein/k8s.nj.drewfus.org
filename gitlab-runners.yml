@@ -1,6 +1,6 @@
 - hosts: gitlab_runners
   vars:
-    gitlab_runner_ver: 13.4.0
+    gitlab_runner_ver: 13.5.0
     gitlab_runner_reregister:
       gitlab_hostname: gitlab.nj.drewfus.org
       registration_token: '{{ gitlab_runner_registration_token }}'
