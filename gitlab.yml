@@ -7,7 +7,7 @@
     gitlab_tls_dir: /etc/gitlab/ssl
     gitlab_tls:
       enable: True
-      pki_dir: /Users/drew/keybase/private/andrewrothstein/pkis/nj.drewfus.org
+      pki_dir: '{{ pki_secrets_dir }}'
     gitlab_enabled: True
     gitlab_config:
       external_url: https://gitlab.nj.drewfus.org

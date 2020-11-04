@@ -1,5 +1,8 @@
 .PHONY: rke-up rke-remove sync-kubeconfig argocd-up argocd-remove argocd-gke-sauce argocd-use-lb argocd-port-forward argocd-print-init-pwd
 
+ansible-playbook:
+	ansible-playbook -e "@${HOME}/keybase/private/andrewrothstein/k8s.nj.drewfus.org/ansible-secrets.json" playbook.yml
+
 pkg-upgrade:
 	ansible-playbook pkg-upgrade.yml
 

@@ -6,7 +6,7 @@
     - role: andrewrothstein.vault-config
       vault_config_tls:
         enable: True
-        pki_dir: /Users/drew/keybase/private/andrewrothstein/pkis/nj.drewfus.org
+        pki_dir: '{{ pki_secrets_dir }}'
       vault_config_storage:
         ty: s3
         bucket: vault-data

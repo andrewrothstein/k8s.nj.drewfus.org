@@ -20,7 +20,7 @@
     matchbox_ver: v0.9.0
     matchbox_config_tls:
       enable: True
-      pki_dir: /Users/drew/keybase/private/andrewrothstein/pkis/nj.drewfus.org
+      pki_dir: '{{ pki_secrets_dir }}'
     matchbox_config_address: 0.0.0.0:8080
     matchbox_config_rpc_address: 0.0.0.0:8081
     matchbox_config_get_coreos:
