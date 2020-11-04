@@ -12,7 +12,7 @@
 - role: andrewrothstein.kubernetes-helm
   version: v1.3.17
 - role: andrewrothstein.docker_engine
-  version: v0.0.5
+  version: v0.0.6
 - role: andrewrothstein.argocd
   version: v1.0.7
 - role: andrewrothstein.pkg-upgrade
