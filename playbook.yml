@@ -7,3 +7,4 @@
 - import_playbook: vault.yml
 - import_playbook: gitlab.yml
 - import_playbook: console.yml
+- import_playbook: gitlab-runners.yml
