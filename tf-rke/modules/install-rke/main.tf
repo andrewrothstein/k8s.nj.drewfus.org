@@ -14,17 +14,18 @@ locals {
     argocd_ver = "1.7.8"
     cert_manager_ver = "1.0.3"
     rook_ver = "1.4"
+    rook_mirror = "https://raw.githubusercontent.com/rook/rook/release-${local.rook_ver}/cluster/examples/kubernetes/ceph"
 }
 
 resource "rke_cluster" "k8s" {
     addons_include = [
         "https://raw.githubusercontent.com/argoproj/argo-cd/v${local.argocd_ver}/manifests/install.yaml",
         "https://github.com/jetstack/cert-manager/releases/download/v${local.cert_manager_ver}/cert-manager.yaml",
-        "https://raw.githubusercontent.com/rook/rook/release-${local.rook_ver}/cluster/examples/kubernetes/ceph/common.yaml",
-        "https://raw.githubusercontent.com/rook/rook/release-${local.rook_ver}/cluster/examples/kubernetes/ceph/operator.yaml",
-        "https://raw.githubusercontent.com/rook/rook/release-${local.rook_ver}/cluster/examples/kubernetes/ceph/cluster.yaml",
-        "https://raw.githubusercontent.com/rook/rook/release-${local.rook_ver}/cluster/examples/kubernetes/ceph/csi/rbd/storageclass-ec.yaml",
-        "https://raw.githubusercontent.com/rook/rook/release-${local.rook_ver}/cluster/examples/kubernetes/ceph/csi/cephfs/storageclass.yaml",
+        "${rook_mirror}/common.yaml",
+        "${rook_mirror}/operator.yaml",
+        "${rook_mirror}/cluster.yaml",
+        "${rook_mirror}/csi/rbd/storageclass-ec.yaml",
+        "${rook_mirror}/csi/cephfs/storageclass.yaml",
     ]
     kubernetes_version = var.k8s_ver
     dynamic "nodes" {
