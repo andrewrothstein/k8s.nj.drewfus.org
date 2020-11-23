@@ -50,29 +50,11 @@ argocd-use-lb:
 argocd-port-forward:
 	kubectl port-forward svc/argocd-server -n argocd 8080:443
 
-vault-op-init:
-	helm repo add banzaicloud-stable https://kubernetes-charts.banzaicloud.com
+vault-helm-init:
+	helm repo add hashicorp https://helm.releases.hashicorp.com
 
-vault-op-start:
-	helm upgrade --install vault-operator banzaicloud-stable/vault-operator -f bank-vaults/vault-op.yml
+vault-helm-install:
+	helm install vault hashicorp/vault --version 0.8.0 -f helm-vault-values.yaml
 
-vault-op-delete:
-	helm delete vault-operator
-
-vault-rbac-start:
-	kubectl apply -f bank-vaults/rbac.yaml
-
-vault-rbac-delete:
-	kubectl delete -f bank-vaults/rbac.yaml
-
-vault-file-start:
-	kubectl apply -f bank-vaults/cr-file.yaml
-
-vault-file-delete:
-	kubectl delete -f bank-vaults/cr-file.yaml
-
-vault-etc-start:
-	kubectl apply -f bank-vaults/cr-etcd-ha.yaml
-
-vault-etc-delete:
-	kubectl delete -f bank-vaults/cr-etcd-ha.yaml
+vault-helm-delete:
+	helm delete vault
