@@ -1,5 +1,6 @@
 - hosts: gitlab_runners
   vars:
+    docker_image_tag: 19.03.12
     gitlab_runner_ver: 13.6.0
     gitlab_runner_reregister:
       gitlab_hostname: gitlab.nj.drewfus.org
@@ -7,10 +8,28 @@
       runners:
         - tags:
             - shell
+            - '{{ inventory_hostname }}'
           executor: shell
         - tags:
             - docker
+            - '{{ inventory_hostname }}'
           executor: docker
           docker_image: alpine:3.12
+        - tags:
+            - dind
+            - '{{ inventory_hostname }}'
+          executor: docker
+          docker_image: docker:{{ docker_image_tag }}
+          docker_privileged: yes
+          docker_volumes:
+            - /certs/client
+            - /cache
+        - tags:
+            - dind-socket
+            - '{{ inventory_hostname }}'
+          executor: docker
+          docker_image: docker:{{ docker_image_tag }}
+          docker_volumes:
+            - /var/run/docker.sock:/var/run/docker/sock
   roles:
     - role: andrewrothstein.gitlab_runner
