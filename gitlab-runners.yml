@@ -2,6 +2,8 @@
   vars:
     docker_image_tag: 19.03.12
     gitlab_runner_ver: 13.6.0
+    gitlab_runner_addl_groups:
+      - docker
     gitlab_runner_reregister:
       gitlab_hostname: gitlab.nj.drewfus.org
       registration_token: '{{ gitlab_runner_registration_token }}'
