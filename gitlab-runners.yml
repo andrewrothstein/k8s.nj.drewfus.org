@@ -17,6 +17,8 @@
             - '{{ inventory_hostname }}'
           executor: docker
           docker_image: alpine:3.12
+          docker_volumes:
+            - /certs/client
         - tags:
             - dind
             - '{{ inventory_hostname }}'
@@ -33,5 +35,6 @@
           docker_image: docker:{{ docker_image_tag }}
           docker_volumes:
             - /var/run/docker.sock:/var/run/docker/sock
+            - /cache
   roles:
     - role: andrewrothstein.gitlab_runner
