@@ -4,25 +4,25 @@
 - role: andrewrothstein.hub
   version: v1.0.24
 - role: andrewrothstein.rke
-  version: v1.0.15
+  version: v1.0.17
 - role: andrewrothstein.kubectl
   version: v1.1.48
 - role: andrewrothstein.calicoctl
-  version: v1.1.16
+  version: v1.1.18
 - role: andrewrothstein.kubernetes-helm
-  version: v1.3.17
+  version: v1.3.18
 - role: andrewrothstein.docker_engine
   version: v0.0.6
 - role: andrewrothstein.argocd
-  version: v1.0.7
+  version: v1.0.8
 - role: andrewrothstein.pkg-upgrade
   version: v1.0.9
 - role: andrewrothstein.hashi
   version: v0.2.0
 - role: andrewrothstein.go
-  version: v2.1.39
+  version: v2.1.41
 - role: andrewrothstein.k3d
-  version: v1.0.8
+  version: v1.0.11
 - role: andrewrothstein.gitlab
   version: v2.2.4
 - role: andrewrothstein.gitlab_runner
@@ -36,6 +36,6 @@
 - role: andrewrothstein.matchbox-config
   version: v2.0.2
 - role: andrewrothstein.k9s
-  version: v1.0.3
+  version: v1.0.8
 - role: andrewrothstein.dnsmasq_configure
   version: v1.0.6
