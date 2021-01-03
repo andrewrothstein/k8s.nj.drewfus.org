@@ -17,7 +17,7 @@
           provider: AWS
           aws_access_key: '{{ minio_access_key }}'
           aws_secret_key: '{{ minio_secret_key }}'
-          endpoint: http://127.0.0.1:9000
+          endpoint: https://gitlab.nj.drewfus.org:9000
         objects:
           artifacts:
             bucket: gitlab-artifacts

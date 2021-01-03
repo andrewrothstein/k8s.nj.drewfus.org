@@ -1,10 +1,12 @@
 ---
 - hosts: minio
   vars:
-    minio_address: 127.0.0.1:9000
+    minio_tls:
+      enable: True
+      pki_dir: '{{ pki_secrets_dir }}'
     minio_config:
       enable: True
-      opts: --address {{ minio_address }}
+      opts: --address 0.0.0.0:9000
       server_access_key: '{{ minio_access_key }}'
       server_secret_key: '{{ minio_secret_key }}'
       volumes:
@@ -23,7 +25,7 @@
   tasks:
     - name: login mc
       command:
-        cmd: /usr/local/bin/mc alias set {{ minio_alias }} http://{{ minio_address }} {{ minio_access_key }} {{ minio_secret_key }}
+        cmd: /usr/local/bin/mc alias set {{ minio_alias }} https://gitlab.nj.drewfus.org:9000 {{ minio_access_key }} {{ minio_secret_key }}
     - name: creating minio buckets with mc
       with_items: '{{ minio_buckets_to_create }}'
       command:
