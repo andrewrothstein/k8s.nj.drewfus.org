@@ -2,7 +2,7 @@
 - hosts:
     - gitlab
   vars:
-    gitlab_ver: 13.7.1
+    gitlab_ver: 13.7.4
     gitlab_patch: 0
     gitlab_tls_dir: /etc/gitlab/ssl
     gitlab_tls:
