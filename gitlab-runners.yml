@@ -1,17 +1,26 @@
 - hosts: gitlab_runners
   vars:
     docker_image_tag: 19.03.12
-    gitlab_runner_ver: 13.7.0
+    gitlab_runner_ver: 13.8.0
+    gitlab_hostname: gitlab.nj.drewfus.org
     gitlab_runner_addl_groups:
       - docker
+    cache_bucket: gitlab-runner-cache
     gitlab_runner_reregister:
-      gitlab_hostname: gitlab.nj.drewfus.org
+      gitlab_hostname: '{{ gitlab_hostname }}'
       registration_token: '{{ gitlab_runner_registration_token }}'
       runners:
         - tags:
             - shell
             - '{{ inventory_hostname }}'
           executor: shell
+          cache_type: s3
+          cache_shared:
+            s3:
+              server_address: '{{ gitlab_hostname }}:9000'
+              access_key: '{{ minio_access_key }}'
+              secret_key: '{{ minio_secret_key }}'
+              bucket_name: '{{ cache_bucket }}'
         - tags:
             - docker
             - '{{ inventory_hostname }}'
@@ -19,6 +28,13 @@
           docker_image: alpine:3.12
           docker_volumes:
             - /certs/client
+          cache_type: s3
+          cache_shared:
+            s3:
+              server_address: '{{ gitlab_hostname }}:9000'
+              access_key: '{{ minio_access_key }}'
+              secret_key: '{{ minio_secret_key }}'
+              bucket_name: '{{ cache_bucket }}'
         - tags:
             - dind
             - '{{ inventory_hostname }}'
@@ -28,6 +44,13 @@
           docker_volumes:
             - /certs/client
             - /cache
+          cache_type: s3
+          cache_shared:
+            s3:
+              server_address: '{{ gitlab_hostname }}:9000'
+              access_key: '{{ minio_access_key }}'
+              secret_key: '{{ minio_secret_key }}'
+              bucket_name: '{{ cache_bucket }}'
         - tags:
             - dind-socket
             - '{{ inventory_hostname }}'
@@ -36,5 +59,12 @@
           docker_volumes:
             - /var/run/docker.sock:/var/run/docker/sock
             - /cache
+          cache_type: s3
+          cache_shared:
+            s3:
+              server_address: '{{ gitlab_hostname }}:9000'
+              access_key: '{{ minio_access_key }}'
+              secret_key: '{{ minio_secret_key }}'
+              bucket_name: '{{ cache_bucket }}'
   roles:
     - role: andrewrothstein.gitlab_runner

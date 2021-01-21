@@ -19,6 +19,7 @@
       - gitlab-uploads
       - gitlab-dependencyproxy
       - gitlab-terraformstate
+      - gitlab-runner-cache
       - vault-data
   roles:
     - role: andrewrothstein.minio
