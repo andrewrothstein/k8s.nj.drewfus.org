@@ -1,0 +1,4 @@
+---
+- hosts: node_exporter
+  roles:
+    - andrewrothstein.node_exporter

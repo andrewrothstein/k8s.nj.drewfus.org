@@ -1,6 +1,7 @@
 ---
 - import_playbook: sudoers.yml
 - import_playbook: trust-ca.yml
+- import_playbook: prometheus-node_exporter.yml
 - import_playbook: san.yml
 - import_playbook: docker.yml
 - import_playbook: minio.yml
