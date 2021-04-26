@@ -23,14 +23,14 @@
   version: v2.1.41
 - role: andrewrothstein.k3d
   version: v1.0.11
-- role: andrewrothstein.gitlab
-  version: v2.2.6
-- role: andrewrothstein.gitlab_runner
-  version: v1.2.6
 - role: andrewrothstein.trust-ca
-  version: v1.2.0
+  version: v2.0.2
+- role: andrewrothstein.gitlab
+  version: v2.2.8
+- role: andrewrothstein.gitlab_runner
+  version: v1.2.7
 - role: andrewrothstein.minio
-  version: v3.1.3
+  version: v3.1.4
 - role: andrewrothstein.vault-config
   version: v2.1.0
 - role: andrewrothstein.matchbox-config

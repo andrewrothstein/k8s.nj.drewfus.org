@@ -1,7 +1,9 @@
 ---
 - hosts:
     - all
+  vars:
+    trust_ca_configs:
+      - name: ca-nj-drewfus-org
+        pki_dir: '{{ pki_secrets_dir }}'
   roles:
     - role: andrewrothstein.trust-ca
-      trust_ca_pki_dir: '{{ pki_secrets_dir }}'
-      trust_ca_cert_prefix: ca-nj-drewfus-org

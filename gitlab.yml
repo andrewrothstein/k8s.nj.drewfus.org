@@ -2,7 +2,7 @@
 - hosts:
     - gitlab
   vars:
-    gitlab_ver: 13.10.0
+    gitlab_ver: 13.11.1
     gitlab_patch: 0
     gitlab_tls_dir: /etc/gitlab/ssl
     gitlab_tls:
@@ -11,13 +11,20 @@
     gitlab_enabled: True
     gitlab_config:
       external_url: https://gitlab.nj.drewfus.org
+      gitlab_rails_backup_upload_connection:
+        provider: AWS
+        aws_access_key_id: '{{ minio_access_key }}'
+        aws_secret_access_key: '{{ minio_secret_key }}'
+        endpoint: https://gitlab.nj.drewfus.org:9000
+        path_style: true
       gitlab_rails_object_store:
         enabled: true
         connection:
           provider: AWS
-          aws_access_key: '{{ minio_access_key }}'
-          aws_secret_key: '{{ minio_secret_key }}'
+          aws_access_key_id: '{{ minio_access_key }}'
+          aws_secret_access_key: '{{ minio_secret_key }}'
           endpoint: https://gitlab.nj.drewfus.org:9000
+          path_style: true
         objects:
           artifacts:
             bucket: gitlab-artifacts
@@ -33,6 +40,8 @@
             bucket: gitlab-dependencyproxy
           terraform_state:
             bucket: gitlab-terraformstate
+      gitlab_rails:
+        backup_upload_remote_directory: gitlab-backups
       nginx:
         enable: True
         redirect_http_to_https_port: 80
