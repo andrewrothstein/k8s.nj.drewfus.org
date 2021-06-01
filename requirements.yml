@@ -28,7 +28,7 @@
 - role: andrewrothstein.gitlab
   version: v2.2.8
 - role: andrewrothstein.gitlab_runner
-  version: v1.2.7
+  version: v1.2.8
 - role: andrewrothstein.minio
   version: v3.1.4
 - role: andrewrothstein.vault-config
