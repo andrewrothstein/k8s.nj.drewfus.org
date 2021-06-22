@@ -1,7 +1,7 @@
 - hosts: gitlab_runners
   vars:
     docker_image_tag: 19.03.12
-    gitlab_runner_ver: 13.12.0
+    gitlab_runner_ver: 14.0.0
     gitlab_hostname: gitlab.nj.drewfus.org
     gitlab_runner_addl_groups:
       - docker
