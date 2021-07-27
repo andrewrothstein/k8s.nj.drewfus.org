@@ -25,10 +25,10 @@ sync-kubeconfig:
 # 1. Install Argo CD
 argocd-up:
 	kubectl create namespace argocd
-	kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v1.7.7/manifests/install.yaml
+	kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.0.5/manifests/ha/install.yaml
 
 argocd-remove:
-	kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v1.7.7/manifests/install.yaml
+	kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.0.5/manifests/ha/install.yaml
 	kubectl delete namespace argocd
 
 argocd-print-init-pwd:
@@ -50,11 +50,17 @@ argocd-use-lb:
 argocd-port-forward:
 	kubectl port-forward svc/argocd-server -n argocd 8080:443
 
-vault-helm-init:
+hashi-helm-init:
 	helm repo add hashicorp https://helm.releases.hashicorp.com
 
 vault-helm-install:
-	helm install vault hashicorp/vault --version 0.8.0 -f helm-vault-values.yaml
+	helm install vault hashicorp/vault --version 0.13.0 -f helm-vault-values.yaml
 
 vault-helm-delete:
 	helm delete vault
+
+consul-helm-install:
+	helm install consul hashicorp/consul --version 0.32.1 -f helm-consul-values.yaml
+
+consul-helm-delete:
+	helm delete consul
