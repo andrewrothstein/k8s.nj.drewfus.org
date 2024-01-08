@@ -1,2 +1,5 @@
 *~
 .ansible/
+*.*secrets.yml
+*.*secrets.env
+*.*secrets.json
